@@ -2,6 +2,11 @@ Academy
 ==========================================
 Enumeration
 --------------
+Let's start with scanning open ports using Nmap
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Nmap.PNG)
+We can see three open ports with SSH, HTTP and Mysqlx services </br>
+We need to add academy.htb in /etc/host and then we can explore the web page.
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Academy%20web.PNG)
 wfuzz -z file,/usr/share/wordlists/wfuzz/general/common.txt -u http://academy.htb/FUZZ.php --hc 404
 
 <https://github.com/aljavier/exploit_laravel_cve-2018-15133>
