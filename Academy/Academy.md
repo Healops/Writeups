@@ -19,7 +19,8 @@ wfuzz -z file,/usr/share/wordlists/wfuzz/general/common.txt -u http://academy.ht
 
 There is roleid parameter in registry form request. Some experiments with it let us register an administrator user.
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Burp%20register.PNG)
-![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Adm%20register.PNG)
+****
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Adm%20register%20new.png)
 
 <https://github.com/aljavier/exploit_laravel_cve-2018-15133>
 
