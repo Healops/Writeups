@@ -61,7 +61,7 @@ www-data@academy$ ls /home/
 ls /home/
 21y4d  ch4p  cry0l1t3  egre55  g0blin  mrb3n
 ```
-Login attempt with the cry0l1t3 user was successed and we got the user.txt flag  
+Login attempt with the cry0l1t3 user using found password was successed and we got the user.txt flag  
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/user%20flag.PNG)
 
 User2
