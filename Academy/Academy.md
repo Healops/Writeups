@@ -2,13 +2,24 @@ Academy
 ==========================================
 Enumeration
 --------------
-Let's start with scanning open ports using Nmap.
-![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Nmap.PNG)
-We can see three open ports with SSH, HTTP and Mysqlx services.  
+Let's start with scanning open ports using Nmap
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Nmap.PNG "Scan results")
+We can see three open ports with SSH, HTTP and Mysqlx services  
 
-We need to add academy.htb in /etc/host and then we can explore the web page.
+We need to add academy.htb in /etc/host and then we can explore the web page
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Academy%20web.PNG)
+
+After register a new user we can see content of main page
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Academy%20login.PNG)
+There are nothing interesting on it
+
+Using gobuster for directory bruteforce gave no results but wfuzz with following command showed admin.php page
 wfuzz -z file,/usr/share/wordlists/wfuzz/general/common.txt -u http://academy.htb/FUZZ.php --hc 404
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/wfuzz.PNG)
+
+There is roleid parameter in registry form request. Some experiments with it let us register an administrator user.
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Burp%20register.PNG)
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Adm%20register.PNG)
 
 <https://github.com/aljavier/exploit_laravel_cve-2018-15133>
 
