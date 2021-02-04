@@ -1,5 +1,7 @@
 Academy
 ==========================================
+Enumeration
+--------------
 wfuzz -z file,/usr/share/wordlists/wfuzz/general/common.txt -u http://academy.htb/FUZZ.php --hc 404
 
 <https://github.com/aljavier/exploit_laravel_cve-2018-15133>
