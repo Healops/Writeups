@@ -22,6 +22,8 @@ There is roleid parameter in registry form request. Some experiments with it let
 ****
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Adm%20register%20new.png)
 
+Foothold
+----------------------
 Now we can login as created user on admin.php
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Academy%20louch%20panel.PNG)
 
