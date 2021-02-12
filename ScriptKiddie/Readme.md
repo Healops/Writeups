@@ -17,7 +17,7 @@ rm Scan-results/$2/$2-version.gnmap
 ````
 ./Scan-script.sh 10.10.10.226 ScriptKiddie
 ````
-Results of port scanning
+There are some open ports
 ```
 # Nmap 7.91 scan initiated Sat Feb  6 23:42:44 2021 as: nmap -T4 -Pn -sV -sC -oA Scan-results/ScriptKiddie/ScriptKiddie-version -p22,5000 10.129.72.252
 Nmap scan report for 10.129.72.252
@@ -37,3 +37,4 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Feb  6 23:43:03 2021 -- 1 IP address (1 host up) scanned in 18.61 seconds
 ```
+SSH works at standart port 22 and http service at uncommon port 5000
