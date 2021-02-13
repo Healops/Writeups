@@ -50,8 +50,8 @@ Foothold
 ---
 There are three options available
 Nmap, msfvenom and searchsploit are executed on the server and we can see the result
-[!alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/nmap.PNG)
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/nmap.PNG)
 
-[!alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/msfvenom.PNG)
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/msfvenom.PNG)
 
-[!alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/searchsploit.PNG)
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/searchsploit.PNG)
