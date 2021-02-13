@@ -38,3 +38,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Sat Feb  6 23:43:03 2021 -- 1 IP address (1 host up) scanned in 18.61 seconds
 ```
 SSH works at standart port 22 and http service at uncommon port 5000
+
+After editing /etc/host let's see a web page on skriptkiddie.htb
+```
+10.10.10.226    scriptkiddie.htb
+```
+
