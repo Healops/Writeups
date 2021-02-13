@@ -61,3 +61,9 @@ We can assume that commands can be executed on the server without any filtering 
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/ls.PNG)
 
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/nmap%20ls.PNG)
+
+But everything is filtered
+
+Attemption generate reverse shell for linux with msfvenom on server and execute it don't work because of some problems on the server
+
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/revsh.PNG)
