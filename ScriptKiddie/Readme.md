@@ -45,3 +45,13 @@ After editing /etc/host let's see a web page on skriptkiddie.htb:5000
 ```
 
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/Web%20page.PNG)
+
+Foothold
+---
+There are three options available
+Nmap, msfvenom and searchsploit are executed on the server and we can see the result
+[!alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/nmap.PNG)
+
+[!alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/msfvenom.PNG)
+
+[!alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/searchsploit.PNG)
