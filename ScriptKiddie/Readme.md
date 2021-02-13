@@ -208,7 +208,7 @@ done
 
 if [[ $(wc -l < $log) -gt 0 ]]; then echo -n > $log; fi
 ```
-As we can see it takes ip address (or everything after the second space) and tries to run nmap to scan it and then clears the file
+As we can see it takes ip address (or everything after the second space) and tries to run nmap to scan it and then clears the file  
 I copied the script on my local system to explore it
 
 Let's see what information the script gets from the file
