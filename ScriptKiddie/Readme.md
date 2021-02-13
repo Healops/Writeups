@@ -67,3 +67,19 @@ But everything is filtered
 Attemption generate reverse shell for linux with msfvenom on server and execute it don't work because of some problems on the server
 
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/revsh.PNG)
+
+Searching for an exploit for one of the tools led me to the msfvenom vulnerability that can be exploited with metasploit 6
+
+```
+msf6 > search msfvenom
+
+Matching Modules
+================
+
+   #  Name                                                                    Disclosure Date  Rank       Check  Description
+   -  ----                                                                    ---------------  ----       -----  -----------
+   0  exploit/unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection  2020-10-29       excellent  No     Rapid7 Metasploit Framework msfvenom APK Template Command Injection
+
+
+Interact with a module by name or index. For example info 0, use 0 or use exploit/unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection
+```
