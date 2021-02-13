@@ -55,3 +55,9 @@ Nmap, msfvenom and searchsploit are executed on the server and we can see the re
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/msfvenom.PNG)
 
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/searchsploit.PNG)
+
+We can assume that commands can be executed on the server without any filtering of user input and try to execute something on the server
+
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/ls.PNG)
+
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/nmap%20ls.PNG)
