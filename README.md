@@ -8,6 +8,6 @@ About this repository
 ---
 Here you can find writeups of some HackTheBox machines
 
-(ScriptKiddie)[https://github.com/Healops/Writeups/tree/main/ScriptKiddie]
+[ScriptKiddie](https://github.com/Healops/Writeups/tree/main/ScriptKiddie)
 
 (Academy)[https://github.com/Healops/Writeups/tree/main/Academy]
