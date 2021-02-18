@@ -10,7 +10,8 @@ Short retelling
 * Find a first user password in the web page directory
 * Find a second user password in log files
 * Check for allowed commands with sudo rights for user
-* Find a way to get root using composer with sudo rights
+* Find a way to get root using composer with sudo rights  
+
 Enumeration
 --------------
 Let's start with scanning open ports using Nmap
