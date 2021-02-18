@@ -48,7 +48,7 @@ After editing /etc/host let's see a web page on skriptkiddie.htb:5000
 
 Foothold/User 1
 ---
-There are three options available
+There are three options available  
 Nmap, msfvenom and searchsploit are executed on the server and we can see the result
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/nmap.PNG)
 
@@ -208,7 +208,7 @@ done
 
 if [[ $(wc -l < $log) -gt 0 ]]; then echo -n > $log; fi
 ```
-As we can see it takes ip address (or everything after the second space) and tries to run nmap to scan it and then clears the file  
+As we can see it takes ip address (or everything after the second space) and tries to run nmap to scan it and then clears the file   
 I copied the script on my local system to explore it
 
 Let's see what information the script gets from the file
@@ -236,7 +236,7 @@ logs  recon  scanlosers.sh
 sh: 1: .nmap: not found
 logs  recon  scanlosers.sh
 ```
-As we can see it run the 'ls' comand
+As we can see it run the 'ls' comand  
 Let's try it on the victim server
 ```
 kid@scriptkiddie:~/logs$ echo '1 1 ;touch /home/kid/logs/hello;' > hackers
