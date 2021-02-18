@@ -8,8 +8,8 @@ About this repository
 ---
 Here you can find my writeups for some HackTheBox machines:
 
-[ScriptKiddie](https://github.com/Healops/Writeups/tree/main/ScriptKiddie)
+[ScriptKiddie](https://github.com/Healops/Writeups/tree/main/ScriptKiddie/Readme.md)
 >*Linux, Metasploit, MSFVenom explotation, Enumeration, Bash code injection, Metasploit privilege escalation*
 
-[Academy](https://github.com/Healops/Writeups/tree/main/Academy)
+[Academy](https://github.com/Healops/Writeups/tree/main/Academy/Readme.md)
 >*Linux, PHP, Laravel, RCE, Enumeration, Composer privilege escalation*
