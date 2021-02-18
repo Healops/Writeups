@@ -1,6 +1,11 @@
 ScriptKiddie
 ============
-![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/ScriptKiddie.jpg)
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/ScriptKiddie.jpg)  
+
+Skills received
+---
+..*Hello
+
 Enumeration
 ------
 For port scanning I'll use following script
