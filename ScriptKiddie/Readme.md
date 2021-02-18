@@ -1,5 +1,6 @@
 ScriptKiddie
 ============
+![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/ScriptKiddie.jpg)
 Enumeration
 ------
 For port scanning I'll use following script
