@@ -91,7 +91,7 @@ Using 'sudo -l' command showed us that mrb3n can run '/composer' as super user
 
 ![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/sudo%20l.PNG)  
 
-After some googling i found [GTFOBins ./composer page](https://gtfobins.github.io/gtfobins/composer/) and found out that if we can run /composer as super user we can then using following commands will give us root privileges:
+After some googling i found [GTFOBins ./composer page](https://gtfobins.github.io/gtfobins/composer/) and found out that if we can run /composer as super user we can then use following commands to get root privileges:
 
 ````
 TF=$(mktemp -d)
