@@ -6,6 +6,6 @@ I'm trying to find out something about hacking and pentest so i started to pract
 
 About this repository
 ---
-Here you can find my writeups for some HackTheBox machines:
-[ScriptKiddie](https://github.com/Healops/Writeups/tree/main/ScriptKiddie)
+Here you can find my writeups for some HackTheBox machines:  
+[ScriptKiddie](https://github.com/Healops/Writeups/tree/main/ScriptKiddie)  
 [Academy](https://github.com/Healops/Writeups/tree/main/Academy)
