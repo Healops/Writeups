@@ -2,9 +2,14 @@ ScriptKiddie
 ============
 ![alt_text](https://github.com/Healops/Writeups/blob/main/ScriptKiddie/Images/ScriptKiddie.jpg)  
 
-Skills received
+Short retelling
 ---
-* Hello 
+* Searching CVE for Msfvenom on the web page
+* Exploit it with Metasploit
+* Find some interesting script on the system
+* Inject reverse-shell in the script
+* Check for allowed commands with sudo rights for user
+* Getting root using Metasploit with sudo rights
 
 Enumeration
 ------
