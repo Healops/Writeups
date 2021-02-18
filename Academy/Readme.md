@@ -1,6 +1,16 @@
 Academy
 ==========================================
-![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Academy.jpeg)
+![alt_text](https://github.com/Healops/Writeups/blob/main/Academy/Images/Academy.jpeg)  
+Short retelling
+----
+* Use Gobuster to find admin.php page
+* Register new user with admin rights using Burpsuite
+* Find some hidden page and look for some vulnerabilities
+* Use CVE for Laravel and get reverse-shell
+* Find a first user password in the web page directory
+* Find a second user password in log files
+* Check for allowed commands with sudo rights for user
+* Find a way to get root using composer with sudo rights
 Enumeration
 --------------
 Let's start with scanning open ports using Nmap
