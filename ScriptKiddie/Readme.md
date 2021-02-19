@@ -206,7 +206,7 @@ kid@scriptkiddie:/home/pwn$ ls
 ls
 recon  scanlosers.sh
 ```
-The script contains the following commands
+The script contains following commands
 ```
 #!/bin/bash
 
